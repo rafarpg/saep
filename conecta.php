@@ -1,6 +1,6 @@
 <?php
     try{
-        $pdo = new PDO("mysql:saep_db=php;host=localhost;charset=utf8","root","");
+        $pdo = new PDO("mysql:dbname=saep_db;host=localhost;charset=utf8","root","");
         }
     catch(PDOException $erro)
     {

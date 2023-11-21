@@ -5,7 +5,7 @@ include("conecta.php");
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-$comando = $pdo->prepare("SELECT * FROM professores WHERE login = '$email' AND senha = '$senha';");
+$comando = $pdo->prepare("SELECT * FROM professores WHERE email = '$email' AND senha = '$senha';");
     
 $comando->execute();
 
@@ -15,10 +15,11 @@ $comando->execute();
         //usuário autenticado!
         session_start();
         $_SESSION["nome"] = $usuario['nome_professor'];
+        $_SESSION["codigo"] = $usuario['idprofessor'];
         $_SESSION["conectado"] = "true";
         header("location:pagina_principal.php");
     }else{
         //e-mail ou senha incorretos.
-        header("location:login.php");
+        header("location:index.html");
     }
 ?>
